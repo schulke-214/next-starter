@@ -1,0 +1,14 @@
+requirePragma: false
+arrowParens: "avoid"
+printWidth: 100
+singleQuote: true
+useTabs: true
+tabWidth: 4
+jsxSingleQuote: true
+jsxBracketSameLine: true
+bracketSpacing: true
+quoteProps: "consistent"
+endOfLine: "lf"
+semi: true
+trailingComma: "none"
+htmlWhitespaceSensitivity: "ignore"

@@ -1,0 +1,22 @@
+{
+	"name": "next-starter",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "git@github.com:schulke-214/next-starter.git",
+	"author": "schulke-214 <schulkemaximilian@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"dev": "next dev"
+	},
+	"dependencies": {
+		"next": "^9.0.5",
+		"react": "^16.9.0",
+		"react-dom": "^16.9.0",
+		"styled-components": "^4.3.2"
+	},
+	"devDependencies": {
+		"@types/node": "^12.7.5",
+		"@types/react": "^16.9.2",
+		"typescript": "^3.6.3"
+	}
+}
