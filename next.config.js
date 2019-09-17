@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
@@ -14,12 +12,7 @@ module.exports = {
 		config.resolve.alias['~'] = directory();
 
 		config.plugins = config.plugins || [];
-		config.plugins.push(
-			new Dotenv({
-				path: path.join(__dirname, '.env'),
-				systemvars: true
-			})
-		);
+		config.plugins.push(new Dotenv());
 
 		return config;
 	}
