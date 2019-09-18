@@ -1,0 +1,26 @@
+.next
+build
+static
+
+node_modules
+
+# ignore all files 
+*.*
+
+# except source files
+!*.js
+!*.jsx
+!*.ts
+!*.tsx
+!*.graphql
+
+!*.md
+!*.json
+!*.yml
+!*.yaml
+
+!*.vue
+!*.css
+!*.scss
+!*.sass
+!*.less

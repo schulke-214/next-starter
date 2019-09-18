@@ -5,7 +5,10 @@
 	"author": "schulke-214 <schulkemaximilian@gmail.com>",
 	"license": "MIT",
 	"scripts": {
-		"dev": "next dev"
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"fmt": "prettier \"${FOLDER:-*}/**/*.${EXT:-*}\" --write"
 	},
 	"dependencies": {
 		"@apollo/react-hooks": "^3.1.1",
@@ -29,6 +32,8 @@
 		"@types/react": "^16.9.2",
 		"dotenv": "^8.1.0",
 		"dotenv-webpack": "^1.7.0",
+		"prettier": "^1.18.2",
+		"semantic-release": "^15.13.24",
 		"typescript": "^3.6.3"
 	}
 }
