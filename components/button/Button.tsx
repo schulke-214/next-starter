@@ -1,5 +1,8 @@
+import React from 'react';
+
 interface IButtonProps {
-	text: string;
+	onClick: () => void;
+	children: React.ReactNode;
 }
 
-export default (props: IButtonProps) => <button>{props.text}</button>;
+export default (props: IButtonProps) => <button onClick={props.onClick}>{props.children}</button>;
