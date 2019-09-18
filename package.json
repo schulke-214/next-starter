@@ -8,7 +8,9 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"fmt": "prettier \"${FOLDER:-*}/**/*.${EXT:-*}\" --write"
+		"fmt": "prettier \"${FOLDER:-*}/**/*.${EXT:-*}\" --write",
+		"start:storybook": "start-storybook -p 8000 --quiet",
+		"build:storybook": "build-storybook --quiet"
 	},
 	"dependencies": {
 		"@apollo/react-hooks": "^3.1.1",
@@ -28,8 +30,17 @@
 		"styled-components": "^4.3.2"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.6.0",
+		"@storybook/addon-actions": "^5.2.1",
+		"@storybook/addon-knobs": "^5.2.1",
+		"@storybook/addon-links": "^5.2.1",
+		"@storybook/addons": "^5.2.1",
+		"@storybook/react": "^5.2.1",
 		"@types/node": "^12.7.5",
 		"@types/react": "^16.9.2",
+		"@types/storybook__react": "^4.0.2",
+		"awesome-typescript-loader": "^5.2.1",
+		"babel-loader": "^8.0.6",
 		"dotenv": "^8.1.0",
 		"dotenv-webpack": "^1.7.0",
 		"prettier": "^1.18.2",
