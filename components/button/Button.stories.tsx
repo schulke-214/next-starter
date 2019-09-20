@@ -1,9 +1,10 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 
 import Button from './Button';
 
-export const text = () => <Button onClick={action('clicked')}>Hello Button</Button>;
+export const plainText = () => <Button onClick={action('clicked')}>{text('lol', 'lal')}</Button>;
 
 export const emoji = () => (
 	<Button onClick={action('clicked')}>
@@ -16,4 +17,5 @@ export const emoji = () => (
 export default {
 	component: Button,
 	title: 'Button'
+	// knobs: {}
 };

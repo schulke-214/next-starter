@@ -9,8 +9,8 @@
 		"build": "next build",
 		"start": "next start",
 		"fmt": "prettier \"${FOLDER:-*}/**/*.${EXT:-*}\" --write",
-		"start:storybook": "start-storybook -p 8000 --quiet",
-		"build:storybook": "build-storybook --quiet"
+		"start:storybook": "start-storybook -p 8000 --quiet -c ./config/.storybook",
+		"build:storybook": "build-storybook --quiet -c ./config/.storybook"
 	},
 	"dependencies": {
 		"@apollo/react-hooks": "^3.1.1",
