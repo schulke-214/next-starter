@@ -9,8 +9,8 @@
 		"build": "next build",
 		"start": "next start",
 		"fmt": "prettier \"${FOLDER:-*}/**/*.${EXT:-*}\" --write",
-		"start:storybook": "start-storybook -p 8000 --quiet -c ./config/.storybook",
-		"build:storybook": "build-storybook --quiet -c ./config/.storybook"
+		"start:sb": "start-storybook -p 8000 --quiet -c ./config/.storybook",
+		"build:sb": "build-storybook --quiet -c ./config/.storybook"
 	},
 	"dependencies": {
 		"@apollo/react-hooks": "^3.1.1",
@@ -32,6 +32,7 @@
 	"devDependencies": {
 		"@babel/core": "^7.6.0",
 		"@storybook/addon-actions": "^5.2.1",
+		"@storybook/addon-docs": "^5.3.0-alpha.0",
 		"@storybook/addon-knobs": "^5.2.1",
 		"@storybook/addon-links": "^5.2.1",
 		"@storybook/addons": "^5.2.1",

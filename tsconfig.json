@@ -15,10 +15,10 @@
 		"jsx": "react",
 		"baseUrl": "./",
 		"paths": {
-			"lib": ["lib"],
 			"components": ["components"],
 			"functions": ["functions"],
-			"layout": ["layout"],
+			"lib": ["lib"],
+			"pages": ["pages"],
 			"~": ["./"]
 		}
 	},
