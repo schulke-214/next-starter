@@ -1,0 +1,20 @@
+import { action } from '@storybook/addon-actions';
+import { text, boolean } from '@storybook/addon-knobs';
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+
+import Button from './Button';
+
+<Meta title='Button' component={Button} />
+
+# Button
+
+With `MDX` we can define a story for `Button` right in the middle of our
+markdown documentation.
+
+<Preview>
+	<Story name='with text'>
+		<Button disabled={boolean('Disabled', false)} onClick={action('click')}>
+			{text('Label', 'Hello Storybook')}
+		</Button>
+	</Story>
+</Preview>

@@ -1,8 +1,13 @@
 import React from 'react';
 
 interface IButtonProps {
-	onClick: () => void;
+	onClick?: () => void;
+	disabled: boolean;
 	children: React.ReactNode;
 }
 
-export default (props: IButtonProps) => <button onClick={props.onClick}>{props.children}</button>;
+export default (props: IButtonProps) => (
+	<button onClick={props.onClick} disabled={props.disabled}>
+		{props.children}
+	</button>
+);

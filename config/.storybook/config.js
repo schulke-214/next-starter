@@ -1,7 +1,6 @@
-import { configure, load, addDecorator } from '@storybook/react';
+import { configure, addDecorator } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
 
-// addDecorator(withKnobs);
+addDecorator(withKnobs);
 
-// automatically import all files ending in *.stories.js
-configure(require.context('../../components', true, /\.stories.(js|jsx|ts|tsx)$/), module);
-// configure(ctx, module);
+configure(require.context('../../components', true, /\.stories.(js|jsx|ts|tsx|mdx)$/), module);
