@@ -6,27 +6,30 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "next dev",
+		"fmt": "prettier \"${FOLDER:-*}/**/*.${EXT:-*}\" --write",
+		"docs": "yarn storybook --docs",
 		"build": "next build",
 		"start": "next start",
-		"fmt": "prettier \"${FOLDER:-*}/**/*.${EXT:-*}\" --write",
-		"start:sb": "start-storybook -p 8000 --quiet -c ./config/.storybook",
-		"build:sb": "build-storybook --quiet -c ./config/.storybook"
+		"storybook": "start-storybook -p 9000 --quiet --ci -s ./static -c ./config/.storybook",
+		"storybook:build": "build-storybook --quiet -s ./static -c ./config/.storybook"
 	},
 	"dependencies": {
 		"@apollo/react-hooks": "^3.1.1",
+		"@zeit/next-sass": "^1.0.1",
 		"apollo-cache-inmemory": "^1.6.3",
 		"apollo-client": "^2.6.4",
 		"apollo-link": "^1.2.13",
 		"apollo-link-http": "^1.5.16",
-		"await-catched": "^1.0.6",
 		"axios": "^0.19.0",
 		"graphql": "^14.5.6",
 		"graphql-tag": "^2.10.1",
 		"isomorphic-unfetch": "^3.0.0",
 		"next": "^9.0.5",
+		"node-sass": "^4.12.0",
 		"react": "^16.9.0",
 		"react-apollo": "^3.1.1",
 		"react-dom": "^16.9.0",
+		"sass-resources-loader": "^2.0.1",
 		"styled-components": "^4.3.2"
 	},
 	"devDependencies": {

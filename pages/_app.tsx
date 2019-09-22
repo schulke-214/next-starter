@@ -4,6 +4,8 @@ import { ApolloProvider } from 'react-apollo';
 
 import withApolloClient from 'lib/apollo/with-apollo-client';
 
+import 'styles/main.scss';
+
 interface Props {
 	apollo: {
 		client: any;
