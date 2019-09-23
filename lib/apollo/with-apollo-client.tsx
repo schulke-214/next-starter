@@ -11,6 +11,7 @@ export default App => {
 		client: any;
 
 		static displayName = 'withApollo(App)';
+
 		static async getInitialProps(ctx) {
 			const { Component, router } = ctx;
 
