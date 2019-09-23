@@ -1,11 +1,9 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
-const withSass = require('@zeit/next-sass');
-
 const relative = (dir = '') => path.join(process.cwd(), dir);
 
-module.exports = withSass({
+module.exports = {
 	webpack: config => {
 		config.resolve.alias['components'] = relative('components');
 		config.resolve.alias['functions'] = relative('functions');
@@ -17,18 +15,6 @@ module.exports = withSass({
 		config.plugins = config.plugins || [];
 		config.plugins.push(new Dotenv());
 
-		config.module.rules.push({
-			test: /\.(scss|sass)$/,
-			use: [
-				{
-					loader: 'sass-resources-loader',
-					options: {
-						resources: [relative('styles/settings/index.scss')]
-					}
-				}
-			]
-		});
-
 		return config;
 	}
-});
+};
