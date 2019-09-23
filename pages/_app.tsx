@@ -1,10 +1,11 @@
 import React from 'react';
 import App from 'next/app';
 import { ApolloProvider } from 'react-apollo';
+import { ThemeProvider } from 'styled-components';
+
+import Theme from 'styles/themes/default';
 
 import withApolloClient from 'lib/apollo/with-apollo-client';
-
-import 'styles/main.scss';
 
 interface Props {
 	apollo: {
@@ -21,9 +22,11 @@ class Application extends App<Props> {
 		} = this.props;
 
 		return (
-			<ApolloProvider client={client}>
-				<Component {...pageProps} />
-			</ApolloProvider>
+			<ThemeProvider theme={Theme}>
+				<ApolloProvider client={client}>
+					<Component {...pageProps} />
+				</ApolloProvider>
+			</ThemeProvider>
 		);
 	}
 }
