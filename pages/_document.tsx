@@ -1,4 +1,5 @@
-import Document, { DocumentContext } from 'next/document';
+import React from 'react';
+import Document, { DocumentContext, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class extends Document {
@@ -25,5 +26,26 @@ export default class extends Document {
 		} finally {
 			sheet.seal();
 		}
+	}
+
+	render() {
+		return (
+			<html lang='en'>
+				<Head>
+					<meta charSet='UTF-8' />
+					<meta
+						name='viewport'
+						content='initial-scale=1.0, width=device-width'
+						key='viewport'
+					/>
+					<title>next-starter</title>
+					<link rel='shortcut icon' type='image/jpg' href='/static/favicon.jpg' />
+				</Head>
+				<body>
+					<Main />
+					<NextScript />
+				</body>
+			</html>
+		);
 	}
 }
