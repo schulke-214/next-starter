@@ -8,8 +8,10 @@
 		"dev": "next dev",
 		"fmt": "prettier \"${FOLDER:-*}/**/*.${EXT:-*}\" --write",
 		"docs": "yarn storybook --docs",
+		"setup": "./config/setup.sh",
 		"build": "next build",
 		"start": "next start",
+		"lint:css": "stylelint \"${FOLDER:-*}/**/**.(ts|tsx)\"",
 		"storybook": "start-storybook -p 9000 --quiet --ci -s ./static -c ./config/.storybook",
 		"storybook:build": "build-storybook --quiet -s ./static -c ./config/.storybook"
 	},
@@ -51,6 +53,11 @@
 		"dotenv-webpack": "^1.7.0",
 		"prettier": "^1.18.2",
 		"semantic-release": "^15.13.24",
+		"stylelint": "^11.0.0",
+		"stylelint-config-recommended": "^3.0.0",
+		"stylelint-config-styled-components": "^0.1.1",
+		"stylelint-order": "^3.1.1",
+		"stylelint-processor-styled-components": "^1.8.0",
 		"typescript": "^3.6.3"
 	}
 }
