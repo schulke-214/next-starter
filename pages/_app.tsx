@@ -4,6 +4,7 @@ import { ApolloProvider } from 'react-apollo';
 import { ThemeProvider } from 'styled-components';
 
 import Theme from 'styles/themes/default';
+import GlobalStyles from 'styles/main';
 
 import withApolloClient from 'lib/apollo/with-apollo-client';
 
@@ -25,6 +26,7 @@ class Application extends App<Props> {
 			<ThemeProvider theme={Theme}>
 				<ApolloProvider client={client}>
 					<Component {...pageProps} />
+					<GlobalStyles />
 				</ApolloProvider>
 			</ThemeProvider>
 		);
