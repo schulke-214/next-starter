@@ -1,12 +1,15 @@
-import { DefaultTheme } from 'styled-components';
+import { Theme } from 'styled-components';
 
-const theme: DefaultTheme = {
+const theme: Theme = {
 	colors: {
-		primary: 'hotpink',
+		primary: '#000',
 		secondary: '#fff'
 	},
 	spacings: {},
-	typography: {}
+	typography: {
+		primary: ['helvetica', 'sans-serif'],
+		secondary: ['monospace']
+	}
 };
 
 export default theme;

@@ -6,5 +6,6 @@ export default createGlobalStyle`
 
 	* {
 		color: ${props => props.theme.colors.primary};
+		font-family: ${props => props.theme.typography.primary.join(', ')}
 	}
 `;
