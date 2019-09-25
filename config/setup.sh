@@ -11,7 +11,7 @@ fi
 echo "init/node"
 nvm install 2>./.setup-log;
 nvm use 2>./.setup-log;
-yarn
+yarn --silent
 
 echo "init/env"
 cp config/default.env .env
