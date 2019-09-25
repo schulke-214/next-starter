@@ -1,10 +1,17 @@
 #!/bin/bash
 
-cp config/default.env .env
+# initialization
 
-if ! [ -x "$(command -v git-flow)" ]; then
-	echo 'Error: git flow is not installed.' >&2
+echo "init/git-flow"
+if ! git flow init 2>./.setup-log; then
+	echo "err: git flow failed to initialize - see ./.setup-log" >&2
 	exit 1
 fi
 
-git flow init
+echo "init/node"
+nvm install 2>./.setup-log;
+nvm use 2>./.setup-log;
+yarn
+
+echo "init/env"
+cp config/default.env .env
