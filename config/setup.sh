@@ -7,7 +7,7 @@ function handle-err {
 	fi
 }
 
-rm .setup-log
+rm .setup-log 2>/dev/null
 
 echo "init/git-flow"
 git flow init 2>.setup-log
