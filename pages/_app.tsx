@@ -1,5 +1,6 @@
 import React from 'react';
 import App from 'next/app';
+import Head from 'next/head';
 import { ApolloProvider } from 'react-apollo';
 import { ThemeProvider } from 'styled-components';
 
@@ -25,6 +26,9 @@ class Application extends App<Props> {
 		return (
 			<ThemeProvider theme={Theme}>
 				<ApolloProvider client={client}>
+					<Head>
+						<title>My new cool app</title>
+					</Head>
 					<Component {...pageProps} />
 					<GlobalStyles />
 				</ApolloProvider>

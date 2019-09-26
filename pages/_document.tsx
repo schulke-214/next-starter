@@ -38,7 +38,6 @@ export default class extends Document {
 						content='initial-scale=1.0, width=device-width'
 						key='viewport'
 					/>
-					<title>next-starter</title>
 					<link rel='shortcut icon' type='image/jpg' href='/static/favicon.jpg' />
 				</Head>
 				<body>
