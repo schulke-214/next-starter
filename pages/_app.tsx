@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import Theme from 'styles/themes/default';
 import GlobalStyles from 'styles/main';
 
-import withApolloClient from 'lib/apollo/with-apollo-client';
+import withApolloClient from 'config/apollo/with-apollo-client';
 
 interface Props {
 	apollo: {
@@ -27,7 +27,7 @@ class Application extends App<Props> {
 			<ThemeProvider theme={Theme}>
 				<ApolloProvider client={client}>
 					<Head>
-						<title>My new cool app</title>
+						<title>my new cool app</title>
 					</Head>
 					<Component {...pageProps} />
 					<GlobalStyles />
