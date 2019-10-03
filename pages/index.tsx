@@ -1,38 +1,52 @@
 import React from 'react';
+import Link from 'next/link';
 import gql from 'graphql-tag';
 import { NextPage } from 'next';
 import { RichText } from 'prismic-reactjs';
-import { useQuery } from 'lib/hooks';
+import { Client } from 'lib/apollo/client';
 
 type HomeProps = {
-	document: any;
+	data: any;
 };
 
-const Home: NextPage<HomeProps> = props => {
-	const { data, loading, error } = useQuery(gql`
-		query {
-			allHome_pages(first: 100) {
-				edges {
-					node {
-						_meta {
-							lang
-						}
-						headline
-						info_text
+const GET_HOME_PAGE = gql`
+	query {
+		allHome_pages(first: 1) {
+			edges {
+				node {
+					_meta {
+						lang
 					}
+					headline
+					info_text
 				}
 			}
 		}
-	`);
+	}
+`;
 
-	if (loading) return <>lol</>;
-
+const Home: NextPage<HomeProps> = props => {
 	return (
 		<main>
-			<h1>{RichText.asText(data.allHome_pages.edges[0].node.headline)}</h1>
-			<p>{RichText.render(data.allHome_pages.edges[0].node.info_text)}</p>
+			<Link href='/work'>
+				<a>to work</a>
+			</Link>
+			<h1>{RichText.asText(props.data.allHome_pages.edges[0].node.headline)}</h1>
+			<div>{RichText.render(props.data.allHome_pages.edges[0].node.info_text)}</div>
 		</main>
 	);
+};
+
+Home.getInitialProps = async ctx => {
+	const client = Client();
+
+	const { data } = await client.query({
+		query: GET_HOME_PAGE
+	});
+
+	return {
+		data
+	};
 };
 
 export default Home;
