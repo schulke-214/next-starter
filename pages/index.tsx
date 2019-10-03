@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import gql from 'graphql-tag';
 import { NextPage } from 'next';
-import { RichText } from 'prismic-reactjs';
+import { RichText, asText } from 'lib/prismic/rich-text';
 import { Client } from 'lib/apollo/client';
 
 type HomeProps = {
@@ -31,8 +31,10 @@ const Home: NextPage<HomeProps> = props => {
 			<Link href='/work'>
 				<a>to work</a>
 			</Link>
-			<h1>{RichText.asText(props.data.allHome_pages.edges[0].node.headline)}</h1>
-			<div>{RichText.render(props.data.allHome_pages.edges[0].node.info_text)}</div>
+			<h1>{asText(props.data.allHome_pages.edges[0].node.headline)}</h1>
+			<div>
+				<RichText render={props.data.allHome_pages.edges[0].node.info_text} />
+			</div>
 		</main>
 	);
 };
