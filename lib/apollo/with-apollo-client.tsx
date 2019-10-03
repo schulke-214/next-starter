@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { Component } from 'react';
 import { getDataFromTree } from 'react-apollo';
 
-import { init } from './init';
+import { Client } from './client';
 
 export default App => {
 	return class Apollo extends Component {
@@ -23,7 +23,7 @@ export default App => {
 
 			// Run all GraphQL queries in the component tree
 			// and extract the resulting data
-			const client = init();
+			const client = Client();
 			if (!process.browser) {
 				try {
 					// Run all GraphQL queries
@@ -58,7 +58,7 @@ export default App => {
 
 		constructor(props) {
 			super(props);
-			this.client = init(props.apolloState);
+			this.client = Client(props.apolloState);
 		}
 
 		render() {

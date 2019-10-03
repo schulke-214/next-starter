@@ -12,16 +12,16 @@ const create = (initialState: any = {}) =>
 		})
 	});
 
-let client = null;
+let instance = null;
 
-export const init = (initialState?: any) => {
+export const Client = (initialState?: any) => {
 	if (typeof window === 'undefined') {
 		return create(initialState);
 	}
 
-	if (!client) {
-		client = create(initialState);
+	if (!instance) {
+		instance = create(initialState);
 	}
 
-	return client;
+	return instance;
 };
