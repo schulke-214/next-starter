@@ -21,7 +21,6 @@ const Work: NextPage<WorkProps> = props => {
 						<Link href={`/work/${edge.node._meta.uid}`}>
 							<a>
 								<RichText render={edge.node.name} />
-								<RichText render={edge.node.description} />
 								<img width='400px' src={edge.node.projectImage.url}></img>
 							</a>
 						</Link>

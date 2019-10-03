@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import gql from 'graphql-tag';
 import { NextPage } from 'next';
-import { RichText } from 'prismic-reactjs';
+import { RichText } from 'lib/prismic/rich-text';
 import { Client } from 'lib/apollo/client';
 
 type WorkDetailProps = {
@@ -15,8 +15,10 @@ const WorkDetail: NextPage<WorkDetailProps> = props => {
 			<Link href='/work'>
 				<a>Zurück</a>
 			</Link>
-			{RichText.render(props.data.project.name)}
-			{RichText.render(props.data.project.description)}
+
+			<RichText render={props.data.project.name} />
+			<RichText render={props.data.project.description} />
+
 			<img src={props.data.project.projectImage.url}></img>
 		</main>
 	);
