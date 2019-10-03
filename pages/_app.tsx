@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import Theme from 'styles/themes/default';
 import GlobalStyles from 'styles/main';
 
-import withApolloClient from 'config/apollo/with-apollo-client';
+import withApolloClient from 'lib/apollo/with-apollo-client';
 
 interface Props {
 	apollo: {
