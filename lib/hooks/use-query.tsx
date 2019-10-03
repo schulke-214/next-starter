@@ -1,5 +1,5 @@
 import { useQuery as useApolloQuery, QueryHookOptions } from '@apollo/react-hooks';
-import { OperationVariables, QueryResult } from '@apollo/react-common';
+import { OperationVariables } from '@apollo/react-common';
 import { DocumentNode } from 'graphql';
 
 /* this sets default options on the useQuery hook of the @apollo/react-hooks package */
