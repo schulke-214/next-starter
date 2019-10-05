@@ -10,6 +10,8 @@ type WorkDetailProps = {
 };
 
 const WorkDetail: NextPage<WorkDetailProps> = props => {
+	//console.log(props.data.project.body);
+
 	return (
 		<main>
 			<Link href='/work'>
@@ -34,13 +36,31 @@ WorkDetail.getInitialProps = async ctx => {
 					name
 					description
 					projectImage
+					body {
+						__typename
+						...QuoteSlice
+						...TextSlice
+					}
 				}
+			}
+
+			fragment QuoteSlice on ProjectBodyQuote {
+				type
+			}
+
+			fragment TextSlice on ProjectBodyText {
+				type
 			}
 		`,
 		variables: {
 			uid: ctx.query.uid
 		}
 	});
+
+	if (!data) {
+		ctx.res.write('err while fetching');
+		ctx.res.end();
+	}
 
 	if (error || !data.project) {
 		ctx.res.writeHead(302, {

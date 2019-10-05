@@ -9,22 +9,6 @@ type HomeProps = {
 	data: any;
 };
 
-const GET_HOME_PAGE = gql`
-	query {
-		allHome_pages(first: 1) {
-			edges {
-				node {
-					_meta {
-						lang
-					}
-					headline
-					info_text
-				}
-			}
-		}
-	}
-`;
-
 const Home: NextPage<HomeProps> = props => {
 	return (
 		<main>
@@ -43,7 +27,21 @@ Home.getInitialProps = async ctx => {
 	const client = Client();
 
 	const { data } = await client.query({
-		query: GET_HOME_PAGE
+		query: gql`
+			query {
+				allHome_pages(first: 1) {
+					edges {
+						node {
+							_meta {
+								lang
+							}
+							headline
+							info_text
+						}
+					}
+				}
+			}
+		`
 	});
 
 	return {
