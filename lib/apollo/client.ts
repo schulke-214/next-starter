@@ -8,7 +8,7 @@ const create = (initialState: any = {}) =>
 		cache: new InMemoryCache().restore(initialState),
 		link: new PrismicLink({
 			uri: process.env.PRISMIC_URL,
-			accessToken: process.env.PRIMSIC_TOKEN
+			accessToken: process.env.PRISMIC_TOKEN
 		})
 	});
 
