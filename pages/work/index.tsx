@@ -1,8 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import gql from 'graphql-tag';
 import { NextPage } from 'next';
-import { Client } from 'lib/apollo/client';
+import { Client } from 'lib/prismic/client';
 import { RichText } from 'lib/prismic/rich-text';
 
 type WorkProps = {
@@ -32,27 +31,25 @@ const Work: NextPage<WorkProps> = props => {
 };
 
 Work.getInitialProps = async ctx => {
-	const client = Client();
+	const client = await Client();
 
-	const { data } = await client.query({
-		query: gql`
-			query {
-				allProjects(lang: "de-de") {
-					totalCount
-					edges {
-						node {
-							_meta {
-								uid
-							}
-							name
-							description
-							projectImage
+	const { data } = await client.fetch(`
+		query {
+			allProjects(lang: "de-de") {
+				totalCount
+				edges {
+					node {
+						_meta {
+							uid
 						}
+						name
+						description
+						projectImage
 					}
 				}
 			}
-		`
-	});
+		}
+	`);
 
 	return {
 		data

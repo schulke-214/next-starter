@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import gql from 'graphql-tag';
+
 import { NextPage } from 'next';
 import { RichText } from 'lib/prismic/rich-text';
-import { Client } from 'lib/apollo/client';
+import { Client } from 'lib/prismic/client';
 
 type WorkDetailProps = {
 	data: any;
@@ -11,6 +11,7 @@ type WorkDetailProps = {
 
 const WorkDetail: NextPage<WorkDetailProps> = props => {
 	//console.log(props.data.project.body);
+	return <></>;
 
 	return (
 		<main>
@@ -27,50 +28,48 @@ const WorkDetail: NextPage<WorkDetailProps> = props => {
 };
 
 WorkDetail.getInitialProps = async ctx => {
-	const client = Client();
+	const client = await Client();
 
-	const { data, error } = await client.query({
-		query: gql`
-			query Project($uid: String!) {
-				project(uid: $uid, lang: "de-de") {
-					name
-					description
-					projectImage
-					body {
-						__typename
-						...QuoteSlice
-						...TextSlice
+	const res = await client.fetch(
+		//	query Project($uid: String!) {
+		` {
+			project(uid: "${ctx.query.uid}", lang: "de-de") {
+				name
+				description
+				projectImage
+				body {
+					__typename
+					... on ProjectBodyText {
+						primary {
+							text
+						}
+					}
+					... on ProjectBodyQuote {
+						primary {
+							quote
+						}
 					}
 				}
 			}
+		}`
+	);
 
-			fragment QuoteSlice on ProjectBodyQuote {
-				type
-			}
+	console.log(JSON.stringify(res, null, 4));
 
-			fragment TextSlice on ProjectBodyText {
-				type
-			}
-		`,
-		variables: {
-			uid: ctx.query.uid
-		}
-	});
+	// if (!data) {
+	// 	ctx.res.write('err while fetching');
+	// 	ctx.res.end();
+	// }
 
-	if (!data) {
-		ctx.res.write('err while fetching');
-		ctx.res.end();
-	}
-
-	if (error || !data.project) {
-		ctx.res.writeHead(302, {
-			Location: '/work'
-		});
-		ctx.res.end();
-	}
+	// if (errors || !data.project) {
+	// 	ctx.res.writeHead(302, {
+	// 		Location: '/work'
+	// 	});
+	// 	ctx.res.end();
+	// }
 
 	return {
-		data
+		data: ''
 	};
 };
 

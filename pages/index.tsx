@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import gql from 'graphql-tag';
+
 import { NextPage } from 'next';
 import { RichText, asText } from 'lib/prismic/rich-text';
-import { Client } from 'lib/apollo/client';
+import { Client } from 'lib/prismic/client';
 
 type HomeProps = {
 	data: any;
@@ -24,25 +24,23 @@ const Home: NextPage<HomeProps> = props => {
 };
 
 Home.getInitialProps = async ctx => {
-	const client = Client();
+	const client = await Client();
 
-	const { data } = await client.query({
-		query: gql`
-			query {
-				allHome_pages(first: 1) {
-					edges {
-						node {
-							_meta {
-								lang
-							}
-							headline
-							info_text
+	const { data } = await client.fetch(`
+		query {
+			allHome_pages(first: 1) {
+				edges {
+					node {
+						_meta {
+							lang
 						}
+						headline
+						info_text
 					}
 				}
 			}
-		`
-	});
+		}
+	`);
 
 	return {
 		data
